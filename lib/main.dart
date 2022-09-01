@@ -1,10 +1,15 @@
-import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
+import 'package:calc/Models/themesmodel.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'User Interface/calc_ui.dart';
 
 void main() {
-  runApp(EasyDynamicThemeWidget(child: const MyApp()));
+  runApp(ChangeNotifierProvider(
+      create: (context) => ThemeProvider(),
+      builder: (context, _) {
+        return const MyApp();
+      }));
 }
 
 class MyApp extends StatelessWidget {
