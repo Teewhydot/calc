@@ -15,7 +15,9 @@ class ThemeProvider extends ChangeNotifier {
 class Mythemes {
   static final darktheme = ThemeData(
     scaffoldBackgroundColor: Colors.grey.shade900,
-    colorScheme: const ColorScheme.dark(),
+    colorScheme: const ColorScheme.dark().copyWith(
+
+    ),
   );
   static final lighttheme = ThemeData(
     scaffoldBackgroundColor: Colors.white,

@@ -3,6 +3,7 @@ import 'package:calc/Models/constants.dart';
 import 'package:calc/Models/themesmodel.dart';
 import 'package:calc/User%20Interface/history.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 class CalcHome extends StatelessWidget {
@@ -24,12 +25,17 @@ class CalculatorHome extends StatefulWidget {
 class _CalculatorHomeState extends State<CalculatorHome> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: Mythemes.lighttheme,
-      darkTheme: Mythemes.darktheme,
-      themeMode: Provider.of<ThemeProvider>(context).themeMode,
-      debugShowCheckedModeBanner: false,
-      home: const CalculatorUI(),
+    return ScreenUtilInit(
+      designSize: const Size(375, 667),
+      splitScreenMode: true,
+      minTextAdapt: true,
+      builder: (context,child)=> MaterialApp(
+        theme: Mythemes.lighttheme,
+        darkTheme: Mythemes.darktheme,
+        themeMode: Provider.of<ThemeProvider>(context).themeMode,
+        debugShowCheckedModeBanner: false,
+        home: const CalculatorUI(),
+      ),
     );
   }
 }
@@ -68,9 +74,6 @@ class _CalculatorUIState extends State<CalculatorUI> {
         buttonValue == '/') {
       firstDigit = textToDisplay.isEmpty ? null : int.parse(textToDisplay);
       operation = buttonValue;
-     // result = '';
-     // result = '$firstDigit$operation';
-    //  result = int.parse(textToDisplay + buttonValue).toString();
       result= firstDigit.toString() + operation;
     } else if (buttonValue == '=') {
       if (firstDigit == null) {
@@ -90,9 +93,10 @@ class _CalculatorUIState extends State<CalculatorUI> {
         } else if (operation == '/') {
           result = '${firstDigit! / secondDigit!}';
         }
+        //provider code here
       }
     } else {
-      //result = int.parse(textToDisplay + buttonValue).toString();
+
       result = textToDisplay + buttonValue;
     }
     setState(() {
@@ -115,7 +119,6 @@ class _CalculatorUIState extends State<CalculatorUI> {
         return Colors.black;
       }
     }
-
     final text =
         Provider.of<ThemeProvider>(context, listen: false).isDark == true
             ? 'Dark Theme'
@@ -123,10 +126,12 @@ class _CalculatorUIState extends State<CalculatorUI> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        elevation: 0,
-        leading: TextButton(  style: ButtonStyle(), onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> History()));
-        }, child: const Center(child: Text('History'))),
+        elevation: 1,
+        leading: TextButton(style:  const ButtonStyle(
+
+        ), onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> const History()));
+        }, child:  const Center(child: Text('History',style: TextStyle(color: Colors.white),))),
         title: const Text('CALC'),
         actions: [
           Row(
@@ -142,11 +147,11 @@ class _CalculatorUIState extends State<CalculatorUI> {
           Expanded(
             flex: 1,
             child: Container(
-              margin: const EdgeInsets.only(
-                  left: 20, right: 20, top: 10, bottom: 5),
+              margin:  EdgeInsets.only(
+                  left: 20.w, right: 20.w, top: 10.h, bottom: 5.h),
               decoration: BoxDecoration(
                 color: Colors.green,
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10.r),
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -154,12 +159,12 @@ class _CalculatorUIState extends State<CalculatorUI> {
                   Align(
                       alignment: Alignment.topRight,
                       child: Padding(
-                        padding: const EdgeInsets.all(5.0),
+                        padding: EdgeInsets.all(5.0.r),
                         child: Text(
                           history,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontWeight: FontWeight.w900,
-                            fontSize: 25,
+                            fontSize: 25.sp,
                           ),
                         ),
                       )),
@@ -167,12 +172,12 @@ class _CalculatorUIState extends State<CalculatorUI> {
                   Align(
                       alignment: Alignment.topRight,
                       child: Padding(
-                        padding: const EdgeInsets.all(5.0),
+                        padding:  EdgeInsets.all(5.0.r),
                         child: Text(
                           textToDisplay.isEmpty ? '0' : textToDisplay,
                           style: TextStyle(
                             fontWeight: FontWeight.w900,
-                            fontSize: 40,
+                            fontSize: 40.sp,
                             color: getTextToDisplayColor(),
                           ),
                         ),
@@ -184,13 +189,13 @@ class _CalculatorUIState extends State<CalculatorUI> {
           Expanded(
               flex: 3,
               child: Container(
-                margin: const EdgeInsets.all(20),
+                margin: EdgeInsets.all(20.r),
                 decoration: BoxDecoration(
                   color: Colors.amber,
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10.r),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding:  EdgeInsets.all(8.0.r),
                   child: Column(
                     children: [
                       Expanded(
