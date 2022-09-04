@@ -1,6 +1,9 @@
+import 'package:calc/Models/constants.dart';
 import 'package:calc/Models/history_model.dart';
+import 'package:calc/Models/themesmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class History extends StatelessWidget {
   const History({Key? key}) : super(key: key);
@@ -8,39 +11,41 @@ class History extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var historyLength = Provider.of<HistoryProvider>(context).numberOfCalc;
+    var themeProvider = Provider.of<ThemeProvider>(context);
     if (historyLength == 0) {
       return SafeArea(
         child: Scaffold(
-          body: Align(
-            alignment: Alignment.center,
-            child: ListView(scrollDirection: Axis.vertical, children: [
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.41,
-                child: const Text("You haven't made any calculations yet"),
-              ),
-            ]),
+          appBar: AppBar(
+            centerTitle: true,
+            leading: GestureDetector(
+                onTap: () => Navigator.pop(context),
+                child: const Icon(Icons.arrow_back)),
+            elevation: 1,
+            title: const Text('History'),
           ),
+          body: const Center(child: Text("You haven't made any calculations yet")),
         ),
       );
     } else {
       return SafeArea(
         child: Scaffold(
           appBar: AppBar(
-            backgroundColor: Colors.white,
+            elevation: 0,
+            title: const Text('History'),
+            centerTitle: true,
             leading: IconButton(
-              icon: const Icon(Icons.arrow_back, color: Colors.black),
+              icon: const Icon(Icons.arrow_back),
               onPressed: () => Navigator.of(context).pop(),
             ),
           ),
           floatingActionButton: FloatingActionButton(
-              backgroundColor: Colors.blue,
               tooltip: 'Clear History',
-              child: const Icon(
+              child:  Icon(
                 Icons.clear,
-                color: Colors.white,
+                color:Colors.white,
               ),
               onPressed: () {
+                context.read<HistoryProvider>().clearHistory();
               }),
           body: Column(
             children: [
@@ -51,9 +56,10 @@ class History extends StatelessWidget {
                       itemCount: value.numberOfCalc,
                       itemBuilder: (context, index) {
                         return HistoryUI(
-                            value.historyL[index],
-                            value.resultsL[index],
-                        );},
+                          value.historyL[index],
+                          value.resultsL[index],
+                        );
+                      },
                       shrinkWrap: true,
                     );
                   },
@@ -67,14 +73,28 @@ class History extends StatelessWidget {
   }
 }
 
-
 class HistoryUI extends StatelessWidget {
   final String history;
   final String result;
 
-  HistoryUI(this.history,this.result);
+  const HistoryUI(this.history, this.result, {Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Padding(
+      padding: EdgeInsets.all(8.0.r),
+      child: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        height: 20.h,
+        child: Row(
+          children: [
+            Text(history),
+            addHorizontalSpacing(10.w),
+            const Text('='),
+            addHorizontalSpacing(10.w),
+            Text(result),
+          ],
+        ),
+      ),
+    );
   }
 }

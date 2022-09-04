@@ -13,3 +13,11 @@ Widget addHorizontalSpacing (double width){
     width: width.w,
   );
 }
+
+const buttonsContainerColorLight = Color(0xffe5e4e0);
+const resetButtonColorLight = Color(0xff388187);
+const resetButtonColorDark = Color(0xffd03f30);
+const equalSignColorLight = Color(0xffc85401);
+const equalSignColorDark = Color(0xff647299);
+const delColorLight = Color(0xff388187);
+//const delColorDark = Color(value);
