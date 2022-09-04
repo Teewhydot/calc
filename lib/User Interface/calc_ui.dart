@@ -74,9 +74,15 @@ class _CalculatorUIState extends State<CalculatorUI> {
         buttonValue == '-' ||
         buttonValue == 'x' ||
         buttonValue == '/') {
-      firstDigit = textToDisplay.isEmpty ? null : int.parse(textToDisplay);
-      operation = buttonValue;
-      result = firstDigit.toString() + operation;
+
+      if (textToDisplay.isEmpty){
+      }
+      else {
+        firstDigit = int.parse(textToDisplay);
+        operation = buttonValue;
+        result = firstDigit.toString() + operation;
+      }
+
     } else if (buttonValue == '=') {
       if (firstDigit == null) {
       } else {
@@ -131,16 +137,22 @@ class _CalculatorUIState extends State<CalculatorUI> {
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
-        leading: TextButton(
-            style: const ButtonStyle(),
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const History()));
-            },
-            child: const Center(
+        leading: GestureDetector(
+          onTap: (){
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const History()));
+          },
+          child:  const Center(
+            child: Padding(
+              padding: EdgeInsets.only(left: 10),
+              child: SizedBox(
                 child: Text(
-              'History',
-            ))),
+                  'History',
+                ),
+              ),
+            ),
+          ),
+        ),
         title: const Text('CALC'),
         actions: [
           Row(

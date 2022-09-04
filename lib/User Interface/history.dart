@@ -1,6 +1,5 @@
 import 'package:calc/Models/constants.dart';
 import 'package:calc/Models/history_model.dart';
-import 'package:calc/Models/themesmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,62 +10,57 @@ class History extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var historyLength = Provider.of<HistoryProvider>(context).numberOfCalc;
-    var themeProvider = Provider.of<ThemeProvider>(context);
     if (historyLength == 0) {
-      return SafeArea(
-        child: Scaffold(
-          appBar: AppBar(
-            centerTitle: true,
-            leading: GestureDetector(
-                onTap: () => Navigator.pop(context),
-                child: const Icon(Icons.arrow_back)),
-            elevation: 1,
-            title: const Text('History'),
-          ),
-          body: const Center(child: Text("You haven't made any calculations yet")),
+      return Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          leading: GestureDetector(
+              onTap: () => Navigator.pop(context),
+              child: const Icon(Icons.arrow_back)),
+          elevation: 0,
+          title: const Text('History'),
         ),
+        body: const Center(child: Text("You haven't made any calculations yet")),
       );
     } else {
-      return SafeArea(
-        child: Scaffold(
-          appBar: AppBar(
-            elevation: 0,
-            title: const Text('History'),
-            centerTitle: true,
-            leading: IconButton(
-              icon: const Icon(Icons.arrow_back),
-              onPressed: () => Navigator.of(context).pop(),
+      return Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          title: const Text('History'),
+          centerTitle: true,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+            tooltip: 'Clear History',
+            child:  Icon(
+              Icons.clear,
+              color:Colors.white,
             ),
-          ),
-          floatingActionButton: FloatingActionButton(
-              tooltip: 'Clear History',
-              child:  Icon(
-                Icons.clear,
-                color:Colors.white,
+            onPressed: () {
+              context.read<HistoryProvider>().clearHistory();
+            }),
+        body: Column(
+          children: [
+            Flexible(
+              child: Consumer<HistoryProvider>(
+                builder: (context, value, child) {
+                  return ListView.builder(
+                    itemCount: value.numberOfCalc,
+                    itemBuilder: (context, index) {
+                      return HistoryUI(
+                        value.historyL[index],
+                        value.resultsL[index],
+                      );
+                    },
+                    shrinkWrap: true,
+                  );
+                },
               ),
-              onPressed: () {
-                context.read<HistoryProvider>().clearHistory();
-              }),
-          body: Column(
-            children: [
-              Flexible(
-                child: Consumer<HistoryProvider>(
-                  builder: (context, value, child) {
-                    return ListView.builder(
-                      itemCount: value.numberOfCalc,
-                      itemBuilder: (context, index) {
-                        return HistoryUI(
-                          value.historyL[index],
-                          value.resultsL[index],
-                        );
-                      },
-                      shrinkWrap: true,
-                    );
-                  },
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       );
     }
