@@ -1,9 +1,36 @@
-# calc
 
-A new Flutter project.
+## Table of contents
 
-## Getting Started
+- [Overview](#overview)
+    - [The challenge](#the-challenge)
+    - [Links](#links)
+    - [Built with](#built-with)
+- [Author](#author)
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+
+## Overview
+
+### The challenge
+
+Users should be able to:
+
+- Perform mathematical operations like addition, subtraction, multiplication, and division ( Two numbers only )
+- Adjust the theme based on their preference
+- See the calculations history
+- Clear calculations history
+
+### Links
+
+- Solution URL: [Github repository URL](https://github.com/Teewhydot/calc.git)
+
+### Built with
+
+- [Flutter](https://flutter.dev)
+- Google fonts
+- Provider State Management
+
+## Author
+
+- Website - [Abubakar Issa](https://www.teeofgui.tech)
+- Twitter - [@tee_of_gui]

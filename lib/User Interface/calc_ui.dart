@@ -5,6 +5,7 @@ import 'package:calc/Models/themesmodel.dart';
 import 'package:calc/User%20Interface/history.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class CalcHome extends StatelessWidget {
@@ -169,9 +170,10 @@ class _CalculatorUIState extends State<CalculatorUI> {
                         padding: EdgeInsets.all(5.0.r),
                         child: Text(
                           history,
-                          style: TextStyle(
+                          style: GoogleFonts.josefinSans(
                             fontWeight: FontWeight.w900,
-                            fontSize: 25.sp,
+                            fontSize: 40.sp,
+                            color: getTextToDisplayColor(),
                           ),
                         ),
                       )),
@@ -182,7 +184,8 @@ class _CalculatorUIState extends State<CalculatorUI> {
                         padding: EdgeInsets.all(5.0.r),
                         child: Text(
                           textToDisplay.isEmpty ? '0' : textToDisplay,
-                          style: TextStyle(
+
+                          style: GoogleFonts.josefinSans(
                             fontWeight: FontWeight.w900,
                             fontSize: 40.sp,
                             color: getTextToDisplayColor(),
