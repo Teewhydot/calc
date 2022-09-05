@@ -35,7 +35,7 @@ class History extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
             tooltip: 'Clear History',
-            child:  Icon(
+            child:  const Icon(
               Icons.clear,
               color:Colors.white,
             ),

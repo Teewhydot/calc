@@ -74,15 +74,12 @@ class _CalculatorUIState extends State<CalculatorUI> {
         buttonValue == '-' ||
         buttonValue == 'x' ||
         buttonValue == '/') {
-
-      if (textToDisplay.isEmpty){
-      }
-      else {
+      if (textToDisplay.isEmpty) {
+      } else {
         firstDigit = int.parse(textToDisplay);
         operation = buttonValue;
         result = firstDigit.toString() + operation;
       }
-
     } else if (buttonValue == '=') {
       if (firstDigit == null) {
       } else {
@@ -134,25 +131,10 @@ class _CalculatorUIState extends State<CalculatorUI> {
             ? 'Dark Theme'
             : 'Light Theme';
     return Scaffold(
+      drawer: const NavigationDrawer(),
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
-        leading: GestureDetector(
-          onTap: (){
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const History()));
-          },
-          child:  const Center(
-            child: Padding(
-              padding: EdgeInsets.only(left: 10),
-              child: SizedBox(
-                child: Text(
-                  'History',
-                ),
-              ),
-            ),
-          ),
-        ),
         title: const Text('CALC'),
         actions: [
           Row(
@@ -189,14 +171,13 @@ class _CalculatorUIState extends State<CalculatorUI> {
                           ),
                         ),
                       )),
-                  addVerticalSpacing(20),
+                  addVerticalSpacing(10),
                   Align(
                       alignment: Alignment.topRight,
                       child: Padding(
                         padding: EdgeInsets.all(5.0.r),
                         child: Text(
                           textToDisplay.isEmpty ? '0' : textToDisplay,
-
                           style: GoogleFonts.josefinSans(
                             fontWeight: FontWeight.w900,
                             fontSize: 40.sp,
@@ -319,4 +300,41 @@ class _CalculatorUIState extends State<CalculatorUI> {
       ),
     );
   }
+}
+
+class NavigationDrawer extends StatelessWidget {
+  const NavigationDrawer({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) => Drawer(
+        child: Column(
+          children: [
+            addVerticalSpacing(50),
+            Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: Column(
+                children: [
+                  ListTile(
+                    onTap: () {
+                      Navigator.pop(context);
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const History()));
+                    },
+                    leading: const Icon(Icons.history),
+                    title: const Text('History'),
+                  ),
+                  const Divider(),
+                  const ListTile(
+                    leading: Icon(Icons.account_circle),
+                    title: Text("About the Developer"),
+                  ),
+                  const Divider(),
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
 }
