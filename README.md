@@ -33,4 +33,4 @@ Users should be able to:
 ## Author
 
 - Website - [Abubakar Issa](https://www.teeofgui.tech)
-- Twitter - [@tee_of_gui]
+- Twitter - [@tee_of_gui](https://twitter.com/tee_of_gui)
