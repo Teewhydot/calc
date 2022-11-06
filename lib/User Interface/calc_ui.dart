@@ -204,16 +204,16 @@ class _CalculatorUIState extends State<CalculatorUI> {
                         child: Row(
                           children: [
                             Expanded(
-                                child: CalculatorNumberButtons(
+                                child: CalculatorNumberButton(
                                     '7', buttonOnclick)),
                             Expanded(
-                                child: CalculatorNumberButtons(
+                                child: CalculatorNumberButton(
                                     '8', buttonOnclick)),
                             Expanded(
-                                child: CalculatorNumberButtons(
+                                child: CalculatorNumberButton(
                                     '9', buttonOnclick)),
                             Expanded(
-                                child: CalculatorNumberButtons(
+                                child: CalculatorNumberButton(
                                     'DEL', buttonOnclick)),
                           ],
                         ),
@@ -222,16 +222,16 @@ class _CalculatorUIState extends State<CalculatorUI> {
                         child: Row(
                           children: [
                             Expanded(
-                                child: CalculatorNumberButtons(
+                                child: CalculatorNumberButton(
                                     '4', buttonOnclick)),
                             Expanded(
-                                child: CalculatorNumberButtons(
+                                child: CalculatorNumberButton(
                                     '5', buttonOnclick)),
                             Expanded(
-                                child: CalculatorNumberButtons(
+                                child: CalculatorNumberButton(
                                     '6', buttonOnclick)),
                             Expanded(
-                                child: CalculatorNumberButtons(
+                                child: CalculatorNumberButton(
                                     '+', buttonOnclick)),
                           ],
                         ),
@@ -240,16 +240,16 @@ class _CalculatorUIState extends State<CalculatorUI> {
                         child: Row(
                           children: [
                             Expanded(
-                                child: CalculatorNumberButtons(
+                                child: CalculatorNumberButton(
                                     '1', buttonOnclick)),
                             Expanded(
-                                child: CalculatorNumberButtons(
+                                child: CalculatorNumberButton(
                                     '2', buttonOnclick)),
                             Expanded(
-                                child: CalculatorNumberButtons(
+                                child: CalculatorNumberButton(
                                     '3', buttonOnclick)),
                             Expanded(
-                                child: CalculatorNumberButtons(
+                                child: CalculatorNumberButton(
                                     '-', buttonOnclick)),
                           ],
                         ),
@@ -258,16 +258,16 @@ class _CalculatorUIState extends State<CalculatorUI> {
                         child: Row(
                           children: [
                             Expanded(
-                                child: CalculatorNumberButtons(
+                                child: CalculatorNumberButton(
                                     '00', buttonOnclick)),
                             Expanded(
-                                child: CalculatorNumberButtons(
+                                child: CalculatorNumberButton(
                                     '0', buttonOnclick)),
                             Expanded(
-                                child: CalculatorNumberButtons(
+                                child: CalculatorNumberButton(
                                     '/', buttonOnclick)),
                             Expanded(
-                                child: CalculatorNumberButtons(
+                                child: CalculatorNumberButton(
                                     'x', buttonOnclick)),
                           ],
                         ),

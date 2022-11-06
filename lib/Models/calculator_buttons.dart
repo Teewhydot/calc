@@ -3,10 +3,10 @@ import 'package:calc/Models/themesmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class CalculatorNumberButtons extends StatelessWidget {
+class CalculatorNumberButton extends StatelessWidget {
   final String buttonText;
   final  Function onPressed;
-  const CalculatorNumberButtons(this.buttonText, this.onPressed, {Key? key})
+  const CalculatorNumberButton(this.buttonText, this.onPressed, {Key? key})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
