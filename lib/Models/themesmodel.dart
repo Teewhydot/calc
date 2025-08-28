@@ -29,8 +29,8 @@ class MyThemes {
     ),
     textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
-      backgroundColor: MaterialStateProperty.all<Color>(Colors.grey.shade900),
-      foregroundColor: MaterialStateProperty.all<Color>(
+      backgroundColor: WidgetStateProperty.all<Color>(Colors.grey.shade900),
+      foregroundColor: WidgetStateProperty.all<Color>(
         const Color(0xffe6e6e6),
       ),
     )),
@@ -50,10 +50,10 @@ class MyThemes {
     ),
     textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
-      backgroundColor: MaterialStateProperty.all<Color>(
+      backgroundColor: WidgetStateProperty.all<Color>(
         const Color(0xffe6e6e6),
       ),
-      foregroundColor: MaterialStateProperty.all<Color>(
+      foregroundColor: WidgetStateProperty.all<Color>(
         Colors.black,
       ),
     )),
@@ -61,7 +61,7 @@ class MyThemes {
 }
 
 class ChangeThemeButtonWidget extends StatelessWidget {
-  const ChangeThemeButtonWidget({Key? key}) : super(key: key);
+  const ChangeThemeButtonWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

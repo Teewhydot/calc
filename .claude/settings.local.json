@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(flutter clean:*)",
+      "Bash(flutter pub:*)",
+      "Bash(flutter build:*)",
+      "Bash(dos2unix:*)",
+      "Bash(sed:*)",
+      "Bash(for i in {1..10})",
+      "Bash(do sleep:*)",
+      "Bash(echo:*)",
+      "Bash(done)",
+      "Bash(flutter doctor:*)",
+      "Bash(./gradlew --stop)",
+      "Bash(pkill:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

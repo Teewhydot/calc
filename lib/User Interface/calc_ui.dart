@@ -9,7 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class CalcHome extends StatelessWidget {
-  const CalcHome({Key? key}) : super(key: key);
+  const CalcHome({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class CalcHome extends StatelessWidget {
 }
 
 class CalculatorHome extends StatefulWidget {
-  const CalculatorHome({Key? key}) : super(key: key);
+  const CalculatorHome({super.key});
 
   @override
   State<CalculatorHome> createState() => _CalculatorHomeState();
@@ -43,7 +43,7 @@ class _CalculatorHomeState extends State<CalculatorHome> {
 }
 
 class CalculatorUI extends StatefulWidget {
-  const CalculatorUI({Key? key}) : super(key: key);
+  const CalculatorUI({super.key});
 
   @override
   State<CalculatorUI> createState() => _CalculatorUIState();
@@ -57,7 +57,7 @@ class _CalculatorUIState extends State<CalculatorUI> {
   String textToDisplay = '';
   String operation = '';
 
-  buttonOnclick(String buttonValue) {
+  void buttonOnclick(String buttonValue) {
     if (buttonValue == 'RESET') {
       history = '';
       textToDisplay = '';
@@ -303,7 +303,7 @@ class _CalculatorUIState extends State<CalculatorUI> {
 }
 
 class NavigationDrawer extends StatelessWidget {
-  const NavigationDrawer({Key? key}) : super(key: key);
+  const NavigationDrawer({super.key});
 
   @override
   Widget build(BuildContext context) => Drawer(

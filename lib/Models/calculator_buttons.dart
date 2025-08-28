@@ -6,8 +6,7 @@ import 'package:provider/provider.dart';
 class CalculatorNumberButton extends StatelessWidget {
   final String buttonText;
   final  Function onPressed;
-  const CalculatorNumberButton(this.buttonText, this.onPressed, {Key? key})
-      : super(key: key);
+  const CalculatorNumberButton(this.buttonText, this.onPressed, {super.key});
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
@@ -36,7 +35,7 @@ class SpecialButtons extends StatelessWidget {
   final Color color;
   final Function onPressed;
   
-  SpecialButtons(this.buttonText,this.color,this.onPressed);
+  const SpecialButtons(this.buttonText,this.color,this.onPressed, {super.key});
 
   @override
   Widget build(BuildContext context) {

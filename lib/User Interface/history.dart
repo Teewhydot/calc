@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class History extends StatelessWidget {
-  const History({Key? key}) : super(key: key);
+  const History({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +71,7 @@ class HistoryUI extends StatelessWidget {
   final String history;
   final String result;
 
-  const HistoryUI(this.history, this.result, {Key? key}) : super(key: key);
+  const HistoryUI(this.history, this.result, {super.key});
   @override
   Widget build(BuildContext context) {
     return Padding(
